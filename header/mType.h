@@ -3,8 +3,20 @@
 
 namespace mType
 {
+    enum class n_time_t
+    {
+        abs,
+        rel
+    }
     enum class sound
     {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        E
     }; 
     
     enum class judgment_type

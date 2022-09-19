@@ -11,13 +11,9 @@ class NoteFile
 {
     private:
     FILE notefile;
-    //사용 노트
-    std::vector<Common_note> used_note;
-    std::vector<Long_note> used;
+    //상대 시간 노드, 절대 시간 아님
 
-    //미사용 노트
-    std::vector<Common_note> not_used_note;
-    std::vector<Long_note> not_usedd_note;
+    note::Note_List base_node; //런타임에 로딩시, 동적할당
 
     loadFile(std::string name); //노트 파일 로딩 미사용 노트 기본
 
@@ -25,8 +21,9 @@ class NoteFile
     public:
     NoteFile(std::string name);//생성자
     ~NoteFile();
-    
-    search_note(time_t time); //현재 시간 일정 범위 이내 노드 탐색
+
+    //게임로딩시 노드들 절대시간으로 변환한다.
+    void Note_Convert(note::Note_List* p_nls_gamenote);
 
 
 #endif
